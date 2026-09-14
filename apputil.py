@@ -1,7 +1,6 @@
 import numpy as np
 
-names = np.array(['Hannah', 'Astrid', 'Abdul', 'Mauve', 'Jung'])
-scores = np.array([99, 71, 85, 62, 91])
+
 # update/add code below ...
 
 def ways(n):
@@ -17,13 +16,12 @@ def ways(n):
                 print(snap)
     return (total_ways)
 
-def lowest_score(names, scores):
-    min_score = np.min(scores)
-    min_index = np.argmin(scores)
-    return names[min_index], min_score
+from tkinter.font import names
 
-def sort_names(names, scores):
-    sorted_indices = np.argsort(scores)
-    sorted_names = names[sorted_indices]
-    sorted_scores = scores[sorted_indices]
+
+def sort_name(names, scores):
+    name_score_pairs = list(zip(names, scores))
+    sorted_pairs = sorted(name_score_pairs, key=lambda x: x[1], reverse=True)
+    sorted_names = [pair[0] for pair in sorted_pairs]
+    sorted_scores = [pair[1] for pair in sorted_pairs]
     return sorted_names, sorted_scores
