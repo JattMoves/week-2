@@ -16,14 +16,18 @@ def ways(n):
                 print(snap)
     return (total_ways)
 
-from tkinter.font import names
-
-
 def lowest_score(names, scores):
     return names[np.argmin(scores)]
 
 
 def sort_names(names, scores):
-    name_score_pairs = zip(names, scores)
-    sorted_pairs = sorted(name_score_pairs, key=lambda pair: pair[1], reverse=True)
-    return [name for name, score in sorted_pairs]
+    sorted_names = list(names)
+    sorted_scores = list(scores)
+
+    for i in range(len(sorted_scores)):
+        for j in range(i + 1, len(sorted_scores)):
+            if sorted_scores[j] > sorted_scores[i]:
+                sorted_scores[i], sorted_scores[j] = sorted_scores[j], sorted_scores[i]
+                sorted_names[i], sorted_names[j] = sorted_names[j], sorted_names[i]
+
+    return sorted_names
