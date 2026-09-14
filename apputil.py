@@ -19,9 +19,11 @@ def ways(n):
 from tkinter.font import names
 
 
-def sort_name(names, scores):
-    name_score_pairs = list(zip(names, scores))
-    sorted_pairs = sorted(name_score_pairs, key=lambda x: x[1], reverse=True)
-    sorted_names = [pair[0] for pair in sorted_pairs]
-    sorted_scores = [pair[1] for pair in sorted_pairs]
-    return sorted_names, sorted_scores
+def lowest_score(names, scores):
+    return names[np.argmin(scores)]
+
+
+def sort_names(names, scores):
+    name_score_pairs = zip(names, scores)
+    sorted_pairs = sorted(name_score_pairs, key=lambda pair: pair[1], reverse=True)
+    return [name for name, score in sorted_pairs]
