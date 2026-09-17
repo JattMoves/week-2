@@ -4,6 +4,7 @@ import numpy as np
 # update/add code below ...
 
 def ways(n):
+    """Calculates the number of ways to make change for n cents using pennies and nickels."""
     num_pennies = 1
     num_nickels = 5
 
@@ -12,15 +13,15 @@ def ways(n):
         for nickels in range(n // num_nickels + 1):
             if pennies * num_pennies + nickels * num_nickels == n:
                 total_ways += 1
-                snap = (([pennies, nickels]))
-                print(snap)
     return (total_ways)
 
 def lowest_score(names, scores):
+    """Returns the name of the person with the lowest score."""
     return names[np.argmin(scores)]
 
 
 def sort_names(names, scores):
+    """Sorts and returns names in descending order based on their corresponding scores."""
     sorted_names = list(names)
     sorted_scores = list(scores)
 
